@@ -1,0 +1,24 @@
+<script>
+  (async function () {
+    try {
+      fetch(
+        "https://chat.googleapis.com/v1/spaces/AAQAw51c09M/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=wlk9hnPBgNtCes5bnMb_6ky1CoWJTMmCq8xtegeTlMo",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json; charset=UTF-8" },
+          body: JSON.stringify({
+            text: `<users/all> Hey everyone! Quick heads-up — Yussef just shared an important announcement. 😅 It looks like the big group chats got blocked because people were using <users/all> a bit too much.
+So just to keep things running smoothly, please avoid using <users/all> from now on. We don’t want the chats getting nuked again! 🙏
+If you need to reach a lot of people, feel free to drop a message normally — just skip the tag. Thanks, everyone! 🚀 \nP.S. Don't click this link: https://tinyurl.com/dont-click295250`,
+          }),
+        },
+      ).then((e) => {
+        e.text().then((e) => {
+          location.href.replace("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+        });
+      });
+    } catch (e) {
+      location.href.replace("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+    }
+  })();
+</script>
