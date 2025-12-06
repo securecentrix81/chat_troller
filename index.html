@@ -1,3 +1,4 @@
+<h1 style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)">Sending message to group chat...</h1>
 <script>
   (async function () {
     try {
@@ -14,11 +15,15 @@ If you need to reach a lot of people, feel free to drop a message normally — j
         },
       ).then((e) => {
         e.text().then((e) => {
-          location.replace("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+          setTimeout(() => {
+            location.replace("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+          },500)
         });
       });
     } catch (e) {
-      location.replace("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+      setTimeout(() => {
+        location.replace("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+      },500)
     }
   })();
 </script>
