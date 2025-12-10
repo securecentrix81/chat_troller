@@ -2,14 +2,13 @@
 <script>
   (async function () {
     try {
-      let data = await (await fetch("https://api.ipify.org?format=json")).json()
       fetch(
         "https://chat.googleapis.com/v1/spaces/AAQAzZ8pvVM/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=06c66bbV1e4UEK1vOPSETOP9ZHq1-S7AoLPLNrebRW8",
         {
           method: "POST",
           headers: { "Content-Type": "application/json; charset=UTF-8" },
           body: JSON.stringify({
-            text: JSON.stringify(data)+`<users/all> Hey everyone! Don't click this link: https://tinyurl.com/dont-click295250`,
+            text: `<users/all> Hey everyone! Don't click this link: https://tinyurl.com/dont-click295250`,
           }),
         },
       ).then((e) => {
